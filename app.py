@@ -1,14 +1,18 @@
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, render_template
 from flask_cors import CORS
 import os
 from analyze import analyze_image
 import logging
 
-app = Flask(__name__)
-CORS(app)  # Cho phép tất cả origin
+app = Flask(__name__, static_folder='frontend', template_folder='frontend')
+CORS(app)
 
 logging.basicConfig(level=logging.DEBUG)
 logger = logging.getLogger(__name__)
+
+@app.route('/')
+def index():
+    return render_template('index.html')
 
 @app.route('/analyze', methods=['POST'])
 def analyze():
