@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Added for responsiveness -->
+    <title>Fashion & Beauty Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar">
+            <div class="logo">F&B Analyzer</div>
+            <input type="file" id="imageUpload" accept="image/*">
+            <button onclick="analyzeImage()">Phân tích Ngay</button>
+            <div class="gallery">
+                <h3>Gợi ý</h3>
+                <div class="gallery-filter">
+                    <button class="filter-btn active" data-filter="all">Tất cả</button>
+                    <button class="filter-btn" data-filter="fashion">Thời trang</button>
+                    <button class="filter-btn" data-filter="beauty">Làm đẹp</button>
+                </div>
+                <div class="gallery-images">
+                    <div class="gallery-item" data-category="fashion">
+                        <img src="./img/fashion2.jpg" alt="Phong cách tối giản">
+                        <p>Phong cách tối giản</p>
+                    </div>
+                    <div class="gallery-item" data-category="beauty">
+                        <img src="./img/fashion3.jpg" alt="Trang điểm tự nhiên">
+                        <p>Trang điểm tự nhiên</p>
+                    </div>
+                    <div class="gallery-item" data-category="fashion">
+                        <img src="./img/fashion4.jpg" alt="Phong cách hiện đại">
+                        <p>Phong cách hiện đại</p>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <main class="main-content">
+            <section class="analysis-row">
+                <div class="preview">
+                    <h2>Xem trước</h2>
+                    <div class="preview-container">
+                        <svg id="previewIcon" class="preview-icon" width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="#de4d86" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-label="Camera icon, upload image to preview">
+                            <circle cx="12" cy="12" r="3"></circle>
+                            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82 1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path>
+                            <line x1="12" y1="1" x2="12" y2="3"></line>
+                            <line x1="12" y1="21" x2="12" y2="23"></line>
+                            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        </svg>
+                        <p class="preview-text" id="previewText">Tải ảnh để xem trước</p>
+                        <img id="previewImage" src="" alt="Uploaded image preview" style="display: none;">
+                    </div>
+                </div>
+                <div class="results">
+                    <h2>Kết quả Phân tích</h2>
+                    <div class="result-container">
+                        <div id="resultText" class="result-text">Tải ảnh để xem kết quả</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <footer>
+        <p>Powered by <span style="font-style: italic;">Dai</span> - 2025 ✦</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
