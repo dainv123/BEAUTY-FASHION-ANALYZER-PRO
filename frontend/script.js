@@ -45,7 +45,7 @@ function analyzeImage() {
         formData.append('suggestion', selectedSuggestion);
     }
 
-    fetch('http://192.168.1.87:5000/analyze', {
+    fetch('/analyze', {
         method: 'POST',
         body: formData,
     })
