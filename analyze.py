@@ -14,8 +14,15 @@ def analyze_image(image_path, suggestion=None):
         return {"error": "Không thể đọc ảnh"}
 
     try:
-        # Thêm timeout để tránh treo
-        analysis = DeepFace.analyze(img_path=image_path, actions=['age', 'emotion'], enforce_detection=False, silent=True)
+        # Giảm kích thước ảnh để tiết kiệm RAM
+        max_size = 128  # Giới hạn kích thước tối đa
+        height, width = img.shape[:2]
+        if max(height, width) > max_size:
+            scale = max_size / max(height, width)
+            img = cv2.resize(img, (int(width * scale), int(height * scale)))
+
+        # Phân tích bằng DeepFace với backend nhẹ hơn
+        analysis = DeepFace.analyze(img_path=image_path, actions=['age', 'emotion'], enforce_detection=False, detector_backend='opencv', silent=True)
         if not analysis or len(analysis) == 0:
             logger.warning("No face detected")
             nhan_sac = ["Không thể phân tích khuôn mặt. Tải ảnh rõ mặt hơn."]
